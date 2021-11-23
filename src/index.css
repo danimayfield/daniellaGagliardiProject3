@@ -62,22 +62,40 @@ a:hover{
     color: #c9534f ;
 }
 
+.none {
+    display:none;
+}
+
 
 /* Specific Styles: */
 .cart {
     color: #e5bfb7;
-    font-size: 3rem;
+    font-size: 2.8rem;
     text-align: right;
     margin-top: -6rem;
     position: sticky;
     z-index: 2;
     top: 1.5%;
-    left: 96%;
+    left: 97%;
     transition: color .3s ease-out;
 }
 
 .cart:hover{
     color: #c96b4f;
+    cursor: pointer;
+}
+
+.cartCount {
+    position: sticky;
+    right: 0.5%;
+    background-color: #7a4933;
+    border-radius: 50%;
+    padding: 0 8px;
+    font-family: 'Thasadith', sans-serif;
+    color: white;
+    font-size: 1.2rem;
+}
+.cartCount:hover{
     cursor: pointer;
 }
 
@@ -120,11 +138,30 @@ li {
     border-radius: 2%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
 .inventoryImage {
     width: 50%;
     padding: 5% 0 0 0;
+}
+
+.inventoryCart {
+    position:relative;
+    width: 100%;
+}
+
+.addCartIcon {
+    color: #c96b4f;
+    font-size: 3rem;
+    position: absolute;
+    top: 20px;
+    right: 4%;
+    transition: color .3s ease-out;
+}
+
+.addCartIcon:hover{
+    color: #e5bfb7;
+    cursor: pointer;
 }
