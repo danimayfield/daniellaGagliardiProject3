@@ -1,6 +1,6 @@
 import './index.css';
 import { useState, useEffect } from 'react';
-import firebase from './firebase.js';
+import firebase from './Firebase.js';
 // import {MouseOver, MouseOut} from 'Hover.js';
 
 function App() {
@@ -17,12 +17,15 @@ function App() {
 
       // variable to hold data object from firebase
       const data = response.val();
-
+      console.log("DATA -->",data)
       // iterate through the data object
-      for (let property in data) {
-        // Use spread operator to add each data object into the state array of listingInfo
-        setListingInfo(...listingInfo, data[property])
-      }
+      // for (let property in data.results) {
+      //   console.log("PROPERTY",property);
+      //   // Use spread operator to add each data object into the state array of listingInfo
+      //   setListingInfo(...listingInfo, data.results[property])
+      //   console.log("LISTINGINFO",listingInfo)
+      // }
+      setListingInfo(data.results)
     })
 
   }, [])
