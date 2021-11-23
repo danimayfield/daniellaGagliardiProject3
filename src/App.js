@@ -1,5 +1,6 @@
 import './index.css';
 import axios from 'axios';
+import firebase from 'firebase';
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -8,13 +9,25 @@ function App() {
   // Piece of state to hold images array:
   const [imageArray, setImageArray] = useState([])
 
+  // Use effect to hold database info:
+  useEffect(()=> {
+    // Variable to hold info from firebase
+    const dbRef = firebase.database().ref();
+
+    dbRef.on('value', (response) => {
+      console.log(response.val());
+    })
+
+
+  },[])
+
 
   // UseEffect to make get request to API for inital data
   useEffect(() => {
     axios.get('https://openapi.etsy.com/v2/shops/19596701/listings/active', {
       params: {
         api_key: 'to7fqul9bxkgli6kttn96ky4',
-        limit: "2"
+        limit: "35"
       }
     })
       .then(function (response) {
@@ -26,6 +39,7 @@ function App() {
         console.log(error);
       });
   }, [])
+  
 
 
   // UseEffect to make get request to 2nd endpoint for image data
@@ -49,7 +63,7 @@ function App() {
         // console.log("response-->>",response.data.results[0].url_fullxfull);
         // Take the response of the second endpoint and store it in variable
         const response2 = response.data.results[0].url_fullxfull
-        // push the response variable to the empty image array
+        // push the response2 variable to the empty image array
         imageArr.push(response2)
       })
       .catch(function(error){
@@ -57,22 +71,20 @@ function App() {
       })
       setImageArray(imageArr)
     })
+    console.log(imageArr);
   }, [listingInfo])
 
   useEffect(() => {
     console.log("IMAGE ARRAY ---->>>",imageArray)
     const finalArray = listingInfo.map((listing, listingIndex) => {
       console.log(listing)
-      if (listingIndex === imageArray[i]){
-        console.log("It matches?")
-      }
-      // imageArray.forEach( (url, urlIndex) => {
-      //   console.log(url)
-      //   if(listingIndex === urlIndex) {
-      //   //  listing.imageUrl = url
-      //   console.log("it matches")
-      //   }
-      // })
+      imageArray.forEach( (url, urlIndex) => {
+        console.log(url)
+        if(listingIndex === urlIndex) {
+         listing.imageUrl = url
+        console.log("it matches")
+        }
+      })
       return listing
     })
     console.log("FINAL ARRAY!!!!!",finalArray)
