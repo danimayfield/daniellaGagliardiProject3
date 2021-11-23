@@ -1,7 +1,7 @@
 import './index.css';
-// import axios from 'axios';
 import { useState, useEffect } from 'react';
 import firebase from './firebase.js';
+// import {MouseOver, MouseOut} from 'Hover.js';
 
 function App() {
   // Piece of state to hold data array:
@@ -32,7 +32,7 @@ function App() {
   return (
     <main>
       <h1>Sprinkling Rainbows Shop</h1>
-      <h3>Filter Area</h3>
+      <h2>Filter Area</h2>
       <div className="inventoryGrid">
         {
           // Map through listingInfo & use the results to populate info!
@@ -40,7 +40,7 @@ function App() {
             return (
               <div key={results.listing_id} className="inventoryCard">
                 <img src={results.image} alt={results.title} className="inventoryImage" />
-                <h2>{results.title}</h2>
+                <h3>{results.title}</h3>
                 <p>$ {(results.price.amount) / (results.price.divisor)}</p>
               </div>
             )

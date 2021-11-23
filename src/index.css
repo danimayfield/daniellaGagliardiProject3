@@ -34,15 +34,15 @@ h2{
     font-family: 'Montserrat Alternates', sans-serif;
     color: #3d2419;
     text-align: center;
-    font-size: 1.5rem;
-    padding: 0 2%;
+    font-size: 2rem;
 }
 
 h3{
     font-family: 'Montserrat Alternates', sans-serif;
     color: #3d2419;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    padding: 0 5%;
 }
 
 p{
@@ -56,10 +56,34 @@ a{
     text-decoration: none;
     color: #3d2419;
     font-size: 2rem;
+    transition: color .3s ease-out;
+}
+a:hover{
+    color: #c9534f ;
 }
 
 
 /* Specific Styles: */
+.cart {
+    color: #e5bfb7;
+    font-size: 3rem;
+    text-align: right;
+    margin-top: -6rem;
+    position: sticky;
+    z-index: 2;
+    top: 1.5%;
+    left: 96%;
+    transition: color .3s ease-out;
+}
+
+.cart:hover{
+    color: #c96b4f;
+    cursor: pointer;
+}
+
+header {
+    margin-top: -1.5rem;
+}
 nav{
     display: flex;
     justify-content: center;
@@ -72,9 +96,14 @@ li {
 
 .logo {
     border-radius: 50%;
-    box-shadow: 5px 5px 10px #3d2419;
+    box-shadow: 8px 8px 18px #3d2419;
     width: 20%;
     margin: 3% 40% 5% 40%;
+    transition: 0.4s ease ;
+}
+
+.logo:hover{
+    box-shadow: 2px 2px 4px #3d2419;
 }
 
 .inventoryGrid {
@@ -94,6 +123,8 @@ li {
     justify-content: center;
     align-items: center;
 }
+
 .inventoryImage {
     width: 50%;
+    padding: 5% 0 0 0;
 }
