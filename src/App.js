@@ -1,6 +1,6 @@
 import './index.css';
 import { useState, useEffect } from 'react';
-import firebase from './firebase.js';
+import firebase from './Firebase.js';
 // import {MouseOver, MouseOut} from 'Hover.js';
 
 function App() {
