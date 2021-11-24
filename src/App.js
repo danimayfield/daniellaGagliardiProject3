@@ -93,7 +93,11 @@ function App() {
   return (
     <div>
       {/* Cart Icon that toggles the cart to open & close */}
-      <i className="fas fa-shopping-cart cart" onClick={() => setShowCart(!showCart)}><span className="cartCount">{cartCount}</span>
+      <i 
+      className="fas fa-shopping-cart cart" 
+      onClick={() => setShowCart(!showCart)}
+      >
+      <span className="cartCount">{cartCount}</span>
         {
           showCart && (
             <div className="cartInfo">
@@ -207,12 +211,4 @@ function App() {
 
 
 export default App;
-
-  // function MouseOver(event) {
-  //   event.classList.remove("none")
-  // }
-
-  // function MouseOut(event) {
-  //   event.classList.add("none")
-  // }
 
