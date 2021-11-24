@@ -50,7 +50,7 @@ function App() {
     setCart([...cart, result])
   }
 
-  // Variable to hold remove cart function that will set the state of the cart to filter out the index of the array that the user choose's when clicking the trash can icon
+  // Variable to hold remove cart function that will set the state of the cart to filter out anything on the index of the array that the user choose's when clicking the trash can icon
   const removeFromCart = index =>
     setCart(result => result.filter((_, i) => i !== index));
 
