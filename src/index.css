@@ -289,6 +289,11 @@ footer {
 
 /* Media Queries: */
 /* Accounting for only width: */
+@media all and (max-width: 1050px) {
+    .cartInfo {
+        width: 40vw;
+    }
+}
 @media all and (max-width: 850px) {
     .filterContainer {
         width: 95%;
@@ -303,6 +308,11 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+@media all and (max-width: 770px) {
+    .cartInfo {
+        width: 55vw;
+    }
+}
 
 @media all and (max-width: 620px) {
     .inventoryGrid {
@@ -313,6 +323,9 @@ footer {
     .logo {
         width: 30%;
         margin: 3% 35% 5% 35%;
+    }
+    .cartInfo {
+        width: 60vw;
     }
 }
 @media all and (max-width: 570px) {
@@ -340,6 +353,9 @@ footer {
     
     .filterOptions {
         margin: 2%;
+    }
+    .cartInfo {
+        width: 80vw;
     }
 }
 
