@@ -205,12 +205,12 @@ li a:hover{
 }
 
 .filterOptions:hover{
-    background-color: #fffdfc;
+    background-color: white;
     cursor: pointer;
 }
 
 .filterActive{
-    background-color: #fffdfc;
+    background-color: white;
     font-family: 'Thasadith', sans-serif;
     color: #3d2419;
     text-align: center;
