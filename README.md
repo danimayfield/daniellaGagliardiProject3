@@ -4,9 +4,9 @@
 
 Project 3 hosted on Netlify here: https://sprinkling-rainbows.netlify.app/
 
-![Screen grab of the heading of the Sprinkling Rainbows Website](HeadingImage.png)
-![Screen grab of the filter area where you may filter your items on the Sprinkling Rainbows Website](FilterArea.png)
-![Screen grab of the cart with items inside on the Sprinkling Rainbows Website](CartArea.png)
+![Screen grab of the heading of the Sprinkling Rainbows Website](./pictures/HeadingImage.png)
+![Screen grab of the filter area where you may filter your items on the Sprinkling Rainbows Website](./pictures/FilterArea.png)
+![Screen grab of the cart with items inside on the Sprinkling Rainbows Website](./pictures/CartArea.png)
 
 ## About the Application
 
