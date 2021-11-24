@@ -19,6 +19,11 @@ function App() {
   const [filterBy, setFilterBy] = useState(" ")
   // Piece of state toggling the active state of the filter choice:
   const [activeType, setActiveType] = useState("")
+  // Piece of state toggling whether one is hovering over something or not:
+  const [isHoverActive, setIsHoverActive] = useState(false)
+  // Piece of state holding the listing_id of the card they are hovering over:
+  const [hoveredId, setHoveredId] = useState('')
+
 
   // Create an array of the different filter types
   const filterTypes = ["All", "Earrings", "Vases", "Planters", "Stickers", "DIY Kits"]
@@ -131,12 +136,12 @@ function App() {
             filterTypes.map(filterType => {
               return <span
                 key={filterType}
-                onClick={() => { 
-                  convertType(filterType) 
-                  setActiveType(filterType) 
+                onClick={() => {
+                  convertType(filterType)
+                  setActiveType(filterType)
                 }}
                 className={`filterOptions ${activeType === filterType ? 'filterActive' : null}`}
-                >
+              >
                 {filterType}</span>
             })
           }
@@ -153,10 +158,20 @@ function App() {
               const roundedPrice = price.toFixed(2);
 
               return (
-                <div key={result.listing_id} className="inventoryCard">
-                  <div className="inventoryCart" onClick={() => addToCart(result)}>
-                    <i className="fas fa-cart-plus addCartIcon"></i>
-                  </div>
+                <div 
+                key={result.listing_id} 
+                className="inventoryCard"
+                onMouseOver={() => {
+                  setIsHoverActive(true)
+                  setHoveredId(result.listing_id)
+                }}
+                >
+                  {isHoverActive && (hoveredId === result.listing_id) && (
+                    <div className="inventoryCart" onClick={() => addToCart(result)}>
+                      <i className="fas fa-cart-plus addCartIcon"></i>
+                    </div>
+                  )}
+
                   <img src={result.image} alt={result.title} className="inventoryImage" />
                   <h3>{result.title.slice(0, 40)}...</h3>
                   <p>$ {roundedPrice}</p>

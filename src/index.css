@@ -234,6 +234,7 @@ li a:hover{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    position:relative;
 }
 
 .inventoryImage {
@@ -242,19 +243,16 @@ li a:hover{
 }
 
 .inventoryCart {
-    position:relative;
-    width: 100%;
+    position:absolute;
+    top: 20px;
+    right: 4%;
 }
 
 .addCartIcon {
     color: #c96b4f;
     font-size: 3rem;
-    position: absolute;
-    top: 20px;
-    right: 4%;
     transition: color .3s ease-out;
 }
-
 .addCartIcon:hover{
     color: #e5bfb7;
     cursor: pointer;
