@@ -1,70 +1,14 @@
-# Getting Started with Create React App
+# Sprinkling Rainbows E-Commerce Shop!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Juno Web Developement Bootcamp Cohort 37 
 
-## Available Scripts
+Project 3 hosted on Netlify here: https://sprinkling-rainbows.netlify.app/
 
-In the project directory, you can run:
+![Screen grab of the heading of the Sprinkling Rainbows Website](HeadingImage.png)
+![Screen grab of the filter area where you may filter your items on the Sprinkling Rainbows Website](FilterArea.png)
+![Screen grab of the cart with items inside on the Sprinkling Rainbows Website](CartArea.png)
 
-### `npm start`
+## About the Application
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This e-commerce site displays all the items in it's shop in a grid. You may filter the items within the shop by type by clicking the buttons in the filter area. If you hover over an item you like, you may add it to the cart. The cart will display the number of items you have in your cart until you are ready to click into the cart to purchase your items. When you are ready, you may click into your cart which will then open a pop up on the screen displaying the items you have in your cart. You may also remove items from your cart here by clicking the trash can icon beside the item you no longer wish to purchase. If you're not ready to purchase, you can leave and come back to the site at a later time as your cart will be saved in a Firebase database. And when you are ready to purchase, you may simply click the checkout button in the cart which will re-direct you to the REAL etsy shop ;)
+Happy Shopping!!

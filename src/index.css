@@ -193,6 +193,7 @@ li a:hover{
     justify-content: space-around;
     width: 60%;
     margin: 2% 20% 3% 20%;
+    padding-left:0;
 }
 
 .filterOptions{
