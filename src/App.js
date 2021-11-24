@@ -24,7 +24,6 @@ function App() {
   // Piece of state holding the listing_id of the card they are hovering over:
   const [hoveredId, setHoveredId] = useState('')
 
-
   // Create an array of the different filter types
   const filterTypes = ["All", "Earrings", "Vases", "Planters", "Stickers", "DIY Kits"]
 
@@ -50,10 +49,18 @@ function App() {
     setCart([...cart, result])
   }
 
-  // Variable to hold remove cart function that will set the state of the cart to filter out the index of the array that the user choose's when clicking the trash can icon
+  // Variable to hold remove cart function that will set the state of the cart to filter out anything on the index of the array that the user choose's when clicking the trash can icon
   const removeFromCart = index =>
     setCart(result => result.filter((_, i) => i !== index));
 
+  // Use effect to watch for changes in the cart to push cart info into firebase
+    useEffect(() => {
+
+      const dbRef = firebase.database().ref();
+
+      dbRef.push(cart);
+
+    },[cart])
 
   // Watch the cart for any changes and re-render if their are any changes
   useEffect(() => {
@@ -93,7 +100,11 @@ function App() {
   return (
     <div>
       {/* Cart Icon that toggles the cart to open & close */}
-      <i className="fas fa-shopping-cart cart" onClick={() => setShowCart(!showCart)}><span className="cartCount">{cartCount}</span>
+      <i 
+      className="fas fa-shopping-cart cart" 
+      onClick={() => setShowCart(!showCart)}
+      >
+      <span className="cartCount">{cartCount}</span>
         {
           showCart && (
             <div className="cartInfo">
@@ -112,7 +123,7 @@ function App() {
                           <p>{result.title.slice(0, 40)}...</p>
                           <p>$ {roundedPrice}</p>
                           <i
-                            class="fas fa-trash deleteIcon"
+                            className="fas fa-trash deleteIcon"
                             onClick={()=>removeFromCart(index)}
                             ></i>
                         </div>
@@ -207,12 +218,4 @@ function App() {
 
 
 export default App;
-
-  // function MouseOver(event) {
-  //   event.classList.remove("none")
-  // }
-
-  // function MouseOut(event) {
-  //   event.classList.add("none")
-  // }
 
