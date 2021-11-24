@@ -17,7 +17,10 @@ function App() {
   const [showCart, setShowCart] = useState(false)
   // Piece of state holding the user's choice of filter:
   const [filterBy, setFilterBy] = useState(" ")
+  // Piece of state toggling the active state of the filter choice:
+  const [activeType, setActiveType] = useState("")
 
+  // Create an array of the different filter types
   const filterTypes = ["All", "Earrings", "Vases", "Planters", "Stickers", "DIY Kits"]
 
   // Use effect to hold database info:
@@ -37,16 +40,18 @@ function App() {
 
   }, [])
 
-
+  // Function to add results from listingInfo into the cart state. Results is passed through as an argument
   function addToCart(result) {
     setCart([...cart, result])
   }
 
+  // Watch the cart for any changes and re-render if their are any changes
   useEffect(() => {
+    // Set the state of cartCount to whatever the length of the array of the cart array is
     setCartCount(cart.length)
   }, [cart])
 
-
+  // Function to convert the title of the filter to the actual keyword string we will use to filter to the data
   function convertType(filterType) {
     if (filterType === "Planters") {
       setFilterBy("Planter")
@@ -63,52 +68,76 @@ function App() {
     }
   }
 
+  // Watch for changes in the filterBy and permListingInfo state to do the following:
   useEffect(() => {
+    // Set a variable to hold a filtered array of objects from the firebase database
     const filterResults = permListingInfo.filter(listingObject => {
+      // Return all listing objects with a title that includes the keyword the user chose that is saved in the filterByState
       return listingObject.title.includes(filterBy)
     })
+    // Set the listingInfo state which displays on the page to the filtered results
     setListingInfo(filterResults)
   }, [filterBy, permListingInfo])
 
 
   return (
     <div>
+      {/* Cart Icon that toggles the cart to open & close */}
       <i className="fas fa-shopping-cart cart" onClick={() => setShowCart(!showCart)}><span className="cartCount">{cartCount}</span>
         {
           showCart && (
             <div className="cartInfo">
               <h4>CART</h4>
               <p>You're eligible for free shipping!</p>
-              {
-                cart.length > 0
-                  ?
-                  (cart.map(result => {
-                    return (
+              <div className="cartContainer">
+                {
+                  cart.length > 0
+                    ?
+                    (cart.map(result => {
+                      const price = (result.price.amount) / (result.price.divisor)
+                      const roundedPrice = price.toFixed(2);
+                      return (
 
-                      <div key={result.listing_id} className="cartList">
-                        <p>{result.title.slice(0, 40)}...</p>
-                        <p>$ {(result.price.amount) / (result.price.divisor)}</p>
-                      </div>
+                        <div key={result.listing_id} className="cartList">
+                          <p>{result.title.slice(0, 40)}...</p>
+                          <p>$ {roundedPrice}</p>
+                        </div>
 
-                    )
-                  }))
-                  : null
-              }
-              <button>Checkout</button>
+                      )
+                    }))
+                    : null
+                }
+              </div>
+              <a href="https://www.etsy.com/shop/SunSprinklesShop?utm_source=google&utm_medium=cpc&utm_campaign=Search_CA_DSA_GGL_ENG_Jewelry_Categories_Ext&utm_ag=Jewelry-Catch%2BAll&utm_custom1=_k_Cj0KCQiAys2MBhDOARIsAFf1D1eGuO9ns6BOcVf3pAZsSO06va6ur2yOTlIJqW_PuRwit64HTDu-aiQaAkgDEALw_wcB_k_&utm_content=go_10059171047_99900993103_544524839660_aud-904454927189%3Adsa-41052322647_c_&utm_custom2=10059171047&gclid=Cj0KCQiAys2MBhDOARIsAFf1D1eGuO9ns6BOcVf3pAZsSO06va6ur2yOTlIJqW_PuRwit64HTDu-aiQaAkgDEALw_wcB" className="checkoutButton">Checkout</a>
             </div>
           )
         }
       </i>
 
       <Header />
-      <main>
-        <h1>Sprinkling Rainbows Shop</h1>
-
-        <h2>Let's Shop!</h2>
-        <div>
+      <main className="pageWrapper">
+        <h1>
+          Welcome!
+        </h1>
+        <h2>
+          Looking for something cute? You've come to the right place!
+        </h2>
+        <h4>
+          Browse By:
+        </h4>
+        <div className="filterContainer">
           {
+            // Map through the filterTypes array & return each string as it's own span element.
             filterTypes.map(filterType => {
-              return <span key={filterType} onClick={() => convertType(filterType)}>{filterType}</span>
+              return <span
+                key={filterType}
+                onClick={() => { 
+                  convertType(filterType) 
+                  setActiveType(filterType) 
+                }}
+                className={`filterOptions ${activeType === filterType ? 'filterActive' : null}`}
+                >
+                {filterType}</span>
             })
           }
         </div>
@@ -118,14 +147,19 @@ function App() {
           {
             // Map through listingInfo & use the results to populate info!
             listingInfo.map(result => {
+              // set price as a variable
+              const price = (result.price.amount) / (result.price.divisor)
+              // fix 2 decimal points to the price
+              const roundedPrice = price.toFixed(2);
+
               return (
                 <div key={result.listing_id} className="inventoryCard">
                   <div className="inventoryCart" onClick={() => addToCart(result)}>
                     <i className="fas fa-cart-plus addCartIcon"></i>
                   </div>
                   <img src={result.image} alt={result.title} className="inventoryImage" />
-                  <h3>{result.title}</h3>
-                  <p>$ {(result.price.amount) / (result.price.divisor)}</p>
+                  <h3>{result.title.slice(0, 40)}...</h3>
+                  <p>$ {roundedPrice}</p>
 
                 </div>
               )
