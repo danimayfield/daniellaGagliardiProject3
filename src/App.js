@@ -53,15 +53,6 @@ function App() {
   const removeFromCart = index =>
     setCart(result => result.filter((_, i) => i !== index));
 
-  // Use effect to watch for changes in the cart to push cart info into firebase
-    useEffect(() => {
-
-      const dbRef = firebase.database().ref();
-
-      dbRef.push(cart);
-
-    },[cart])
-
   // Watch the cart for any changes and re-render if their are any changes
   useEffect(() => {
     // Set the state of cartCount to whatever the length of the array of the cart array is
