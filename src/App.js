@@ -50,6 +50,11 @@ function App() {
     setCart([...cart, result])
   }
 
+  // Variable to hold remove cart function that will set the state of the cart to filter out the index of the array that the user choose's when clicking the trash can icon
+  const removeFromCart = index =>
+    setCart(result => result.filter((_, i) => i !== index));
+
+
   // Watch the cart for any changes and re-render if their are any changes
   useEffect(() => {
     // Set the state of cartCount to whatever the length of the array of the cart array is
@@ -98,7 +103,7 @@ function App() {
                 {
                   cart.length > 0
                     ?
-                    (cart.map(result => {
+                    (cart.map((result, index) => {
                       const price = (result.price.amount) / (result.price.divisor)
                       const roundedPrice = price.toFixed(2);
                       return (
@@ -106,6 +111,10 @@ function App() {
                         <div key={result.listing_id} className="cartList">
                           <p>{result.title.slice(0, 40)}...</p>
                           <p>$ {roundedPrice}</p>
+                          <i
+                            class="fas fa-trash deleteIcon"
+                            onClick={()=>removeFromCart(index)}
+                            ></i>
                         </div>
 
                       )
