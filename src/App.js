@@ -24,7 +24,6 @@ function App() {
   // Piece of state holding the listing_id of the card they are hovering over:
   const [hoveredId, setHoveredId] = useState('')
 
-
   // Create an array of the different filter types
   const filterTypes = ["All", "Earrings", "Vases", "Planters", "Stickers", "DIY Kits"]
 
@@ -54,6 +53,14 @@ function App() {
   const removeFromCart = index =>
     setCart(result => result.filter((_, i) => i !== index));
 
+  // Use effect to watch for changes in the cart to push cart info into firebase
+    useEffect(() => {
+
+      const dbRef = firebase.database().ref();
+
+      dbRef.push(cart);
+
+    },[cart])
 
   // Watch the cart for any changes and re-render if their are any changes
   useEffect(() => {
@@ -116,7 +123,7 @@ function App() {
                           <p>{result.title.slice(0, 40)}...</p>
                           <p>$ {roundedPrice}</p>
                           <i
-                            class="fas fa-trash deleteIcon"
+                            className="fas fa-trash deleteIcon"
                             onClick={()=>removeFromCart(index)}
                             ></i>
                         </div>
