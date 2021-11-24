@@ -130,11 +130,11 @@ function App() {
         <h4>
           Browse By:
         </h4>
-        <div className="filterContainer">
+        <ul className="filterContainer">
           {
             // Map through the filterTypes array & return each string as it's own span element.
             filterTypes.map(filterType => {
-              return <span
+              return <li
                 key={filterType}
                 onClick={() => {
                   convertType(filterType)
@@ -142,10 +142,10 @@ function App() {
                 }}
                 className={`filterOptions ${activeType === filterType ? 'filterActive' : null}`}
               >
-                {filterType}</span>
+                {filterType}</li>
             })
           }
-        </div>
+        </ul>
 
 
         <div className="inventoryGrid">
@@ -158,13 +158,13 @@ function App() {
               const roundedPrice = price.toFixed(2);
 
               return (
-                <div 
-                key={result.listing_id} 
-                className="inventoryCard"
-                onMouseOver={() => {
-                  setIsHoverActive(true)
-                  setHoveredId(result.listing_id)
-                }}
+                <div
+                  key={result.listing_id}
+                  className="inventoryCard"
+                  onMouseOver={() => {
+                    setIsHoverActive(true)
+                    setHoveredId(result.listing_id)
+                  }}
                 >
                   {isHoverActive && (hoveredId === result.listing_id) && (
                     <div className="inventoryCart" onClick={() => addToCart(result)}>
@@ -182,11 +182,15 @@ function App() {
           }
 
         </div>
-
       </main>
 
       <footer>
-
+        <div className="footerContainer">
+          <a className="footerLink" href="https://www.etsy.com/shop/SunSprinklesShop?utm_source=google&utm_medium=cpc&utm_campaign=Search_CA_DSA_GGL_ENG_Jewelry_Categories_Ext&utm_ag=Jewelry-Catch%2BAll&utm_custom1=_k_Cj0KCQiAys2MBhDOARIsAFf1D1eGuO9ns6BOcVf3pAZsSO06va6ur2yOTlIJqW_PuRwit64HTDu-aiQaAkgDEALw_wcB_k_&utm_content=go_10059171047_99900993103_544524839660_aud-904454927189%3Adsa-41052322647_c_&utm_custom2=10059171047&gclid=Cj0KCQiAys2MBhDOARIsAFf1D1eGuO9ns6BOcVf3pAZsSO06va6ur2yOTlIJqW_PuRwit64HTDu-aiQaAkgDEALw_wcB">All images and products credited to: SunSprinklesShop</a>
+          <p>Header, logo and website credited to Dani Mayfield</p>
+          <a className="footerLink" href="https://github.com/danimayfield/daniellaGagliardiProject3"><i className="fab fa-github"></i></a>
+          <a className="footerLink" href="https://www.linkedin.com/in/daniella-mayfield-5a6a99222/"><i className="fab fa-linkedin"></i></a>
+        </div>
       </footer>
     </div>
   );
