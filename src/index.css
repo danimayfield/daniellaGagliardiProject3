@@ -92,8 +92,8 @@ a.skip-main:focus, a.skip-main:active {
     border:4px solid yellow;
     text-align:center;
     font-size:1em;
-    left: 0;
-    top: 0;
+    left: auto;
+    top: auto;
     z-index:20;
     overflow:auto;
     width: 20%;
