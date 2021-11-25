@@ -75,8 +75,31 @@ a{
     margin: 0 auto;
 }
 
-.none {
-    display:none;
+.skipMain{
+    left:-999px;
+    position:absolute;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+    z-index:-999;
+}
+
+a.skip-main:focus, a.skip-main:active {
+    color: black;
+    background-color:white;
+    border-radius: 15px;
+    border:4px solid yellow;
+    text-align:center;
+    font-size:1em;
+    left: 0;
+    top: 0;
+    z-index:20;
+    overflow:auto;
+    width: 20%;
+    height: auto;
+    margin: 10% 35%;
+    padding:5px;
 }
 
 
@@ -290,6 +313,12 @@ footer {
 
 .footerLink:hover {
     color: #c9534f ;
+}
+
+.junoRef {
+    font-size: 1rem;
+    display: block;
+    margin-top: 1%;
 }
 
 
