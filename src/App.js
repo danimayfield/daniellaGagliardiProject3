@@ -90,6 +90,8 @@ function App() {
 
   return (
     <div>
+      {/* Skip to main content anchor tag */}
+      <a className="skipMain" href="#main">Skip To Main Content</a>
       {/* Cart Icon that toggles the cart to open & close */}
       <i 
       className="fas fa-shopping-cart cart" 
@@ -201,6 +203,7 @@ function App() {
           <p>Header, logo and website credited to Dani Mayfield</p>
           <a className="footerLink" href="https://github.com/danimayfield/daniellaGagliardiProject3"><i className="fab fa-github"></i></a>
           <a className="footerLink" href="https://www.linkedin.com/in/daniella-mayfield-5a6a99222/"><i className="fab fa-linkedin"></i></a>
+          <a className="junoRef" href="https://junocollege.com/">Created at Juno College</a>
         </div>
       </footer>
     </div>
