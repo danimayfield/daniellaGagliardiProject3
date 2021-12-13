@@ -1,6 +1,6 @@
 # Sprinkling Rainbows E-Commerce Shop!
 
-###Hosted on Netlify here: https://sprinkling-rainbows.netlify.app/
+### Hosted on Netlify here: https://sprinkling-rainbows.netlify.app/
 
 ## About the Application
 
